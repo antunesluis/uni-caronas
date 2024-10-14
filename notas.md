@@ -117,3 +117,7 @@ Indexes {
   (bookings.ride_id)
   (bookings.destination_id)
 }```
+
+## Imagem tabelas: 
+
+

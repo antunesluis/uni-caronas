@@ -24,3 +24,7 @@ uni-caronas/
 │   └── package.json
 └── README.md
 ```
+
+<div align="center">
+  <img src="https://github.com/antunesluis/uni-caronas/blob/main/schema.png" />
+</div>
