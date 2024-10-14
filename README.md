@@ -2,7 +2,7 @@
 
 ## Estrutura
 
-```css
+```shell
 uni-caronas/
 ├── client/                 # Frontend
 │   ├── public/
