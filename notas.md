@@ -1,10 +1,6 @@
 # Caronas Universitárias - Notas do Projeto
 
-## Descrição Geral
-
-Este projeto é uma aplicação web de caronas universitárias que conecta estudantes de diferentes universidades, permitindo que motoristas ofereçam caronas para determinadas rotas e que passageiros possam reservar um lugar na carona. A aplicação não inclui um sistema de pagamentos interno ou de mensagens. As caronas são publicadas com informações de contato e chave Pix para pagamento direto entre as partes.
-
-### Funcionalidades Principais
+## Tabelas Principais
 
 1. **Usuários (Users)**:
    - Cadastro de usuários com nome, email, telefone e chave Pix (opcional).
@@ -21,41 +17,30 @@ Este projeto é uma aplicação web de caronas universitárias que conecta estud
    - Cada carona pode passar por várias cidades (destinos).
    - A ordem das paradas é registrada e os preços são definidos por destino.
 
-5. **Reservas (Bookings)**:
+1. **Reservas (Bookings)**:
    - Passageiros podem reservar um lugar em uma carona específica para um destino específico.
    - O status da reserva pode ser `pending`, `confirmed` ou `cancelled`.
+   - Relaciona-se com caronas e usuarios (passageiro).
 
-### Estrutura do Banco de Dados (PostgreSQL)
+## Páginas principais
 
-- A estrutura de banco de dados foi projetada para garantir integridade referencial e consistência, usando relações entre as tabelas `users`, `universities`, `rides`, `ride_destinations` e `bookings`.
-- Índices foram criados para melhorar a performance de consultas frequentes, como busca por caronas e reservas.
+- Login: Formulário de email e senha para login de usuário;
+- Home: Lista de caronas disponíveis com filtros;
+- CadastroCarona: Formulário para publicar uma nova carona;
+- PerfilUsuario: Informações do usuário e suas caronas publicadas;
 
-### Tabelas Principais
+## Tecnologias
 
-1. **Tabela `users`**:
-   - Armazena informações dos usuários cadastrados (motoristas e passageiros).
-   - Inclui campos para nome, email, telefone e chave Pix.
+- Frontend:
+  - React.js (criação da interface).
+  - React Router (navegação entre páginas).
+  - Axios (requisições HTTP para backend).
+  - CSS Framework: Tailwind CSS ou Material UI para estilização.
 
-2. **Tabela `universities`**:
-   - Armazena os dados das universidades cadastradas, incluindo cidade e estado.
-
-3. **Tabela `rides`**:
-   - Registra as caronas publicadas pelos motoristas.
-   - Contém informações como data e hora de partida, universidade de origem e número de assentos disponíveis.
-
-4. **Tabela `ride_destinations`**:
-   - Registra os destinos da carona, incluindo cidade, estado, preço e ordem das paradas.
-
-5. **Tabela `bookings`**:
-   - Armazena as reservas de passageiros para as caronas.
-   - Cada reserva está associada a uma carona e a um destino específico.
-
-### Índices
-
-- **Índices de performance** foram criados para as seguintes consultas:
-  - Busca por data de partida da carona.
-  - Busca por universidade de origem.
-  - Busca por destinos e reservas de caronas.
+- Backend:
+  - Node.js com Express (API REST).
+  - PostgreSQL (banco de dados)
+  - JWT para autenticação.
 
 ## Esquema do banco de dados
 
@@ -76,10 +61,10 @@ Table universities {
   city varchar(100) [not null]
   state char(2) [not null]
 }
-
 Table rides {
   id integer [primary key]
   driver_id integer [ref: > users.id]
+
   university_origin_id integer [ref: > universities.id]
   departure_datetime timestamp [not null]
   available_seats integer [not null]
@@ -117,7 +102,3 @@ Indexes {
   (bookings.ride_id)
   (bookings.destination_id)
 }```
-
-## Imagem tabelas: 
-
-
