@@ -1,46 +1,70 @@
 # Caronas Universitárias - Notas do Projeto
 
-## Tabelas Principais
-
-1. **Usuários (Users)**:
-   - Cadastro de usuários com nome, email, telefone e chave Pix (opcional).
-
-1. **Universidades (Universities)**:
-   - Cada universidade tem um nome, cidade e estado.
-   - Motoristas especificam a universidade de origem ao oferecer uma carona.
-
-3. **Caronas (Rides)**:
-   - Motoristas publicam suas caronas, especificando o horário de partida, a universidade de origem, assentos disponíveis, e a rota.
-   - O status da carona pode ser `active`, `completed` ou `cancelled`.
-
-4. **Destinos das Caronas (Ride Destinations)**:
-   - Cada carona pode passar por várias cidades (destinos).
-   - A ordem das paradas é registrada e os preços são definidos por destino.
-
-1. **Reservas (Bookings)**:
-   - Passageiros podem reservar um lugar em uma carona específica para um destino específico.
-   - O status da reserva pode ser `pending`, `confirmed` ou `cancelled`.
-   - Relaciona-se com caronas e usuarios (passageiro).
-
 ## Páginas principais
 
 - Login: Formulário de email e senha para login de usuário;
 - Home: Lista de caronas disponíveis com filtros;
-- CadastroCarona: Formulário para publicar uma nova carona;
-- PerfilUsuario: Informações do usuário e suas caronas publicadas;
+- Cadastro Carona: Formulário para publicar uma nova carona;
+- Perfil Usuário: Informações do usuário e suas caronas publicadas;
+- Informações corrida: Expande a exibição dos detalhes da corrida
 
-## Tecnologias
+## Diagrama UML
 
-- Frontend:
-  - React.js (criação da interface).
-  - React Router (navegação entre páginas).
-  - Axios (requisições HTTP para backend).
-  - CSS Framework: Tailwind CSS ou Material UI para estilização.
+### Ator
 
-- Backend:
-  - Node.js com Express (API REST).
-  - PostgreSQL (banco de dados)
-  - JWT para autenticação.
+- Usuário (realiza login)
+
+  - Motoristas (cria corrida)
+  - Passageiros. (entram em corridas)
+
+- administrador/curador (excluir corridas ou usuários).
+
+### Hierarquia de ações
+
+- Menu inicial:
+  - Realizar login.
+  - Visualizar corridas adicionadas.
+  - Visualizar minhas corridas recentes.
+  - Pesquisar corridas.
+  - Pesquisar usuários.
+  - Abrir meu perfil.
+  - Criar carona.
+  - Expandir informações da corrida.
+- Login:
+  - Conectar usuário:
+    - Adicionar email.
+    - Adicionar senha.
+  - Registrar usuário:
+    - Adicionar nome completo.
+    - Adicionar pix.
+    - Adicionar numero de telefone.
+    - Adicionar email.
+    - Adicionar senha.
+- Meu perfil:
+  - Adicionar foto.
+  - Modificar nome.
+  - Modificar pix.
+  - Modificar numero.
+  - Histórico de corridas criadas.
+- Pagina dos outros usuários:
+  - Visualizar dados.
+  - Visualizar histórico de corridas.
+  - Avaliar usuário.
+- Detalhes da corrida:
+  - Visualizar dados usuário.
+  - Visualizar preço.
+  - Visualizar data de partida.
+  - Visualizar origem.
+  - Visualizar destino.
+  - Visualizar paradas.
+  - Visualizar descrição.
+- Criação de corrida:
+  - Adicionar paradas:
+    - Adicionar destino.
+    - Adicionar origem.
+    - Adicionar valor.
+  - Adicionar horário e data de partida.
+  - Adicionar descrição.
 
 ## Esquema do banco de dados
 
@@ -103,60 +127,38 @@ Indexes {
   (bookings.destination_id)
 }```
 
-## Diagrama UML
+## Tabelas Principais
 
-### Ator
+1. **Usuários (Users)**:
+   - Cadastro de usuários com nome, email, telefone e chave Pix (opcional).
 
-- Usuário (realiza login)
+1. **Universidades (Universities)**:
+   - Cada universidade tem um nome, cidade e estado.
+   - Motoristas especificam a universidade de origem ao oferecer uma carona.
 
-  - Motoristas (cria corrida)
-  - Passageiros. (entram em corridas)
+3. **Caronas (Rides)**:
+   - Motoristas publicam suas caronas, especificando o horário de partida, a universidade de origem, assentos disponíveis, e a rota.
+   - O status da carona pode ser `active`, `completed` ou `cancelled`.
 
-- administrador/curador (excluir corridas ou usuários).
+4. **Destinos das Caronas (Ride Destinations)**:
+   - Cada carona pode passar por várias cidades (destinos).
+   - A ordem das paradas é registrada e os preços são definidos por destino.
 
-### Hierarquia de ações
+1. **Reservas (Bookings)**:
+   - Passageiros podem reservar um lugar em uma carona específica para um destino específico.
+   - O status da reserva pode ser `pending`, `confirmed` ou `cancelled`.
+   - Relaciona-se com caronas e usuarios (passageiro).
 
-- Menu inicial:
-  - Realizar login.
-  - Visualizar corridas adicionadas.
-  - Visualizar minhas corridas recentes.
-  - Pesquisar corridas.
-  - Pesquisar usuários.
-  - Abrir meu perfil.
-  - Criar carona.
-  - Expandir informações da corrida.
-- Login:
-  - Conectar usuário:
-    - Adicionar email.
-    - Adicionar senha.
-  - Registrar usuário:
-    - Adicionar nome completo.
-    - Adicionar pix.
-    - Adicionar numero de telefone.
-    - Adicionar email.
-    - Adicionar senha.
-- Meu perfil:
-  - Adicionar foto.
-  - Modificar nome.
-  - Modificar pix.
-  - Modificar numero.
-  - Histórico de corridas criadas.
-- Pagina dos outros usuários:
-  - Visualizar dados.
-  - Visualizar histórico de corridas.
-  - Avaliar usuário.
-- Detalhes da corrida:
-  - Visualizar dados usuário.
-    - Visualizar preço.
-  - Visualizar data de partida.
-  - Visualizar origem.
-  - Visualizar destino.
-  - Visualizar paradas.
-  - Visualizar descrição.
-- Criação de corrida:
-  - Adicionar paradas:
-    - Adicionar destino.
-    - Adicionar origem.
-    - Adicionar valor.
-  - Adicionar horário e data de partida.
-  - Adicionar descrição
+
+## Tecnologias
+
+- Frontend:
+  - React.js (criação da interface).
+  - React Router (navegação entre páginas).
+  - Axios (requisições HTTP para backend).
+  - CSS Framework: Tailwind CSS ou Material UI para estilização.
+
+- Backend:
+  - Node.js com Express (API REST).
+  - PostgreSQL (banco de dados)
+  - JWT para autenticação.
