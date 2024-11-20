@@ -162,3 +162,82 @@ Indexes {
   - Node.js com Express (API REST).
   - PostgreSQL (banco de dados)
   - JWT para autenticação.
+
+## Lembrar de adicionar:
+
+- Botões de cancelar e de salvar na criação de corrida;
+
+---
+
+# Paleta de cores:
+
+## Guia cores
+
+1. Cores Principais:
+
+
+- Azul principal: #0EA5E9 (Blue-500)
+- Azul hover: #0284C7 (Blue-600)
+- Azul claro: #E0F2FE (Blue-100)
+- Amarelo destaque: #EAB308 (Yellow-500)
+- Amarelo claro: #FEF9C3 (Yellow-100)
+- Branco puro: #FFFFFF
+
+2. Tons de Cinza:
+
+
+Texto escuro: #0F172A (Gray-900)
+Texto principal: #334155 (Gray-700)
+Bordas escuras: #CBD5E1 (Gray-300)
+Bordas claras: #E2E8F0 (Gray-200)
+Texto secundário: #64748B (Gray-500)
+Background: #F8FAFC (Gray-50)
+
+## Recomendações de uso:
+
+1. Interface principal:
+
+- Fundo da página: Gray-50 ou White
+- Cabeçalhos/Headers: White
+- Cards: White com sombra
+- Bordas: Gray-200
+
+2. Texto:
+
+- Títulos importantes: Gray-900
+- Texto do corpo: Gray-700
+- Texto secundário: Gray-500
+- Texto sobre fundos escuros: White
+
+3. Elementos interativos:
+
+- Botões principais: Blue-500
+- Links: Blue-500
+- Badges/Tags: Blue-100 com texto Blue-700
+- Hover de botões: Blue-600
+
+4. Destaques e notificações:
+
+- Alertas importantes: Yellow-500
+- Background de destaques: Yellow-100
+- Notificações: Blue-500
+- Badges de status: Yellow-400
+
+5. Formulários:
+
+- Background dos inputs: White
+- Borda dos inputs: Gray-200
+- Hover dos inputs: Gray-300
+- Textos de placeholder: Gray-400
+
+
+
+
+
+
+
+
+
+
+
+
