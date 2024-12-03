@@ -29,7 +29,7 @@ Table usuario {
   senha varchar(255) [not null]
   telefone varchar(20)
   chave_pix varchar(100)
-  avaliacao decimal(3, 2) [default: 0.0, not null]
+  avaliacao_media decimal(3, 2) [default: 0.0, not null]
   data_criacao timestamp [default: `CURRENT_TIMESTAMP`]
 }
 
@@ -39,17 +39,26 @@ Table corrida {
   origem integer [ref: > cidade.id]
   destino integer [ref: > cidade.id]
   data_partida timestamp [not null]
+  preco decimal(10, 2) [not null]
   bancos_totais integer [not null]
   bancos_livres integer [not null]
   descricao_corrida text
   status enum('active', 'completed', 'cancelled') [default: 'active']
-  data_criacao timestamp [default: `CURRENT_TIMESTAMP`]
+  data_criacao timestamp [default: `CURRENT_TIMESTAMP`]            
+}
+
+Table avaliacao {
+  id integer [primary key]
+  id_avaliador integer [ref: > usuario.id]
+  id_avaliado integer [ref: > usuario.id]
+  corrida_id integer [ref: > corrida.id]
+  nota decimal(3,2) [not null]
 }
 
 Table cidade {
   id integer [primary key]
   nome varchar(100) [not null]
-  estado varchar(2) [not null]
+  estado varchar(2) [not null] 
 }
 
 Table parada {
